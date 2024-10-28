@@ -33,7 +33,24 @@
 				</div>
 			</div>
 			<a href="https://www.zorem.com/ast-pro/?utm_source=wp-admin&utm_medium=ast-addons&utm_campaign=more-info" class="button-primary btn_ast2 btn_large upgrade_to_pro_btn" target="_blank">UPGRADE TO AST PRO <span class="dashicons dashicons-arrow-right-alt2"></span></a>	
-		</div>						
+		</div>
+		
+		<form method="post" id="wc_usage_tracking_form" action="" enctype="multipart/form-data">
+			<div class="usage-tracking-accordion heading add-tracking-option">
+				<label>
+					<?php esc_html_e( 'Usage Tracking', 'ast-pro' ); ?>
+					<span class="ast-accordion-btn">
+						<div class="spinner workflow_spinner" style="float:none"></div>
+						<button name="save" class="button-primary usage-tracking-save btn_ast2" type="submit" value="Save changes"><?php esc_html_e( 'Save & Close', 'ast-pro' ); ?></button>
+					</span>
+				</label>
+			</div>
+			<div class="usage-tracking-panel options usage-data-option">
+				<?php wc_advanced_shipment_tracking()->admin->get_html_ul( wc_advanced_shipment_tracking()->admin->get_usage_tracking_options() ); ?>
+			</div>
+			<?php wp_nonce_field( 'wc_usage_tracking_form', 'wc_usage_tracking_form_nonce' ); ?>
+			<input type="hidden" name="action" value="wc_usage_tracking_form_update">	
+		</form>
 		
 		<h1 class="tab_section_heading clear_spacing" style="margin: 20px 0 0;">Level up your fulfillment workflows</h1>				
 		

@@ -339,6 +339,12 @@ class AST_Integration {
 				'img'		=> 'woocommerce-germanized.png',
 				'documentation' => 'https://docs.zorem.com/docs/ast-pro/ast-pro/integrations/woocommerce-germanized-plugin-by-vendidero/',
 			),
+			'enable_netsuite_integration' => array(
+				'type'		=> 'tgl_checkbox',
+				'title'		=> __( 'NetSuite Connector', 'woo-advanced-shipment-tracking' ),				
+				'img'		=> 'netsuite.png',
+				'documentation' => 'https://docs.zorem.com/docs/ast-pro/ast-pro/integrations/netsuite/',
+			),
 		);
 		
 		return $form_data;

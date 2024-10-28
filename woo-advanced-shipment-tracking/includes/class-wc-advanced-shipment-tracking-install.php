@@ -283,7 +283,6 @@ class WC_Advanced_Shipment_Tracking_Install {
 			}
 
 			if ( version_compare( get_option( 'wc_advanced_shipment_tracking', '1.0' ), '4.2', '<' ) ) {
-
 				if ( get_option('ast_option_migrated') == false ) {
 
 					//get old general options 
@@ -333,6 +332,29 @@ class WC_Advanced_Shipment_Tracking_Install {
 				} else {
 					update_option( 'wc_advanced_shipment_tracking', '4.2' );
 				}
+			}
+
+			if ( version_compare( get_option( 'wc_advanced_shipment_tracking', '4.2' ), '4.3', '<' ) ) {
+
+				//get old general options 
+				$wc_ast_status_updated_tracking = get_option( 'wc_ast_status_updated_tracking', 0 );
+				$wc_ast_status_updated_tracking_label_color = get_option( 'wc_ast_status_updated_tracking_label_color', '#23a2dd' );
+				$wc_ast_status_updated_tracking_label_font_color = get_option( 'wc_ast_status_updated_tracking_label_font_color', '#fff' );
+				$wcast_enable_updated_tracking_email = get_option( 'wcast_enable_updated_tracking_email', 0 );
+				
+				//update new general options
+				update_ast_settings( 'ast_general_settings', 'wc_ast_status_updated_tracking', $wc_ast_status_updated_tracking );
+				update_ast_settings( 'ast_general_settings', 'wc_ast_status_updated_tracking_label_color', $wc_ast_status_updated_tracking_label_color );
+				update_ast_settings( 'ast_general_settings', 'wc_ast_status_updated_tracking_label_font_color', $wc_ast_status_updated_tracking_label_font_color );
+				update_ast_settings( 'ast_general_settings', 'wcast_enable_updated_tracking_email', $wcast_enable_updated_tracking_email );
+
+				//delete old general options
+				delete_option( 'wc_ast_status_updated_tracking' );
+				delete_option( 'wc_ast_status_updated_tracking_label_color' );
+				delete_option( 'wc_ast_status_updated_tracking_label_font_color' );
+				delete_option( 'wcast_enable_updated_tracking_email' );
+
+				update_option( 'wc_advanced_shipment_tracking', '4.3' );
 			}
 
 		}

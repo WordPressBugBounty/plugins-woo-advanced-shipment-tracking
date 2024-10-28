@@ -90,7 +90,8 @@ class WC_Advanced_Shipment_Tracking_Settings {
 		}
 		
 		//new order status
-		$updated_tracking_status = get_option( 'wc_ast_status_updated_tracking', 0 );
+		// $updated_tracking_status = get_option( 'wc_ast_status_updated_tracking', 0 );
+		$updated_tracking_status = get_ast_settings( 'ast_general_settings', 'wc_ast_status_updated_tracking', 0 );
 		if ( true == $updated_tracking_status ) {			
 			//register order status 
 			add_action( 'init', array( $this, 'register_updated_tracking_order_status' ) );
@@ -489,7 +490,7 @@ class WC_Advanced_Shipment_Tracking_Settings {
 	
 	public function ast_open_inline_tracking_form_fun() {
 		
-		if ( ! current_user_can( 'manage_woocommerce' ) ) {
+		if ( ! current_user_can( AST_FREE_PLUGIN_ACCESS ) ) {
 			exit( 'You are not allowed' );
 		}
 
@@ -601,7 +602,7 @@ class WC_Advanced_Shipment_Tracking_Settings {
 	*/
 	public function sync_providers_fun() {
 		
-		if ( ! current_user_can( 'manage_woocommerce' ) ) {
+		if ( ! current_user_can( AST_FREE_PLUGIN_ACCESS ) ) {
 			exit( 'You are not allowed' );
 		}
 		

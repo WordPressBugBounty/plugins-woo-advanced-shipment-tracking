@@ -1097,7 +1097,27 @@ jQuery(document).on("click", ".woocommerce-save-button", function(e){
 	return false;
 });
 
-jQuery(document).on("change", "#wc_ast_settings_form .ast-settings-toggle,.order_status_toggle,.enable_order_status_email_input,.custom_order_color_select, #wc_ast_status_shipped", function(){	
+jQuery(document).on("click", ".usage-tracking-save", function(e){	
+	
+	var form = jQuery('#wc_usage_tracking_form');
+	form.find(".spinner").addClass("active");
+	
+	jQuery.ajax({
+		url: ajaxurl,		
+		data: form.serialize(),		
+		type: 'POST',		
+		success: function(response) {	
+			form.find(".spinner").removeClass("active");
+			jQuery(document).ast_snackbar( shipment_tracking_table_rows.i18n.data_saved );
+		},
+		error: function(response) {
+			console.log(response);			
+		}
+	});
+	return false;
+});
+
+jQuery(document).on("change", "#wc_usage_tracking_form .ast-settings-toggle,#wc_ast_settings_form .ast-settings-toggle,.order_status_toggle,.enable_order_status_email_input,.custom_order_color_select, #wc_ast_status_shipped", function(){	
 	jQuery('span.ast-accordion-btn button').prop("disabled", false);
 });
 		

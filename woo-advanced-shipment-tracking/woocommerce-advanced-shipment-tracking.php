@@ -4,13 +4,13 @@
  * Plugin Name: Advanced Shipment Tracking for WooCommerce 
  * Plugin URI: https://www.zorem.com/products/woocommerce-advanced-shipment-tracking/ 
  * Description: Add shipment tracking information to your WooCommerce orders and provide customers with an easy way to track their orders. Shipment tracking Info will appear in customers accounts (in the order panel) and in WooCommerce order complete email. 
- * Version: 3.6.9
+ * Version: 3.7.0
  * Author: zorem
  * Author URI: https://www.zorem.com 
  * License: GPL-2.0+
  * License URI: 
  * Text Domain: woo-advanced-shipment-tracking 
- * WC tested up to: 9.2.3
+ * WC tested up to: 9.3.3
  * Requires Plugins: woocommerce
 */
 
@@ -21,7 +21,7 @@ class Zorem_Woocommerce_Advanced_Shipment_Tracking {
 	 *
 	 * @var string
 	 */
-	public $version = '3.6.9';
+	public $version = '3.7.0';
 	public $plugin_file;
 	public $plugin_path;
 	public $table;
@@ -47,7 +47,12 @@ class Zorem_Woocommerce_Advanced_Shipment_Tracking {
 		// Add your templates to this array.
 		if (!defined('SHIPMENT_TRACKING_PATH')) {
 			define( 'SHIPMENT_TRACKING_PATH', $this->get_plugin_path());
-		}	
+		}
+
+		$user_permission = apply_filters( 'ast_free_plugin_manager_permission', 'manage_woocommerce' );
+		if ( !defined('AST_FREE_PLUGIN_ACCESS') ) {			
+			define( 'AST_FREE_PLUGIN_ACCESS', $user_permission );
+		}
 
 		register_activation_hook( __FILE__, array( $this,'on_activation' ) );		
 		
@@ -252,6 +257,9 @@ class Zorem_Woocommerce_Advanced_Shipment_Tracking {
 				
 		//ajax save admin api settings
 		add_action( 'wp_ajax_wc_ast_settings_form_update', array( $this->admin, 'wc_ast_settings_form_update_callback' ) );
+
+		//ajax save admin api settings
+		add_action( 'wp_ajax_wc_usage_tracking_form_update', array( $this->admin, 'wc_usage_tracking_form_update_callback' ) );
 		
 		add_action( 'wp_ajax_wc_ast_custom_order_status_form_update', array( $this->admin, 'wc_ast_custom_order_status_form_update' ) );			
 		

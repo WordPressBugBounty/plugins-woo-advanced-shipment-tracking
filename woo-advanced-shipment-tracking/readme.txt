@@ -2,9 +2,9 @@
 Contributors: zorem,gaurav1092,eranzorem,gehorsam,satishzorem
 Tags: WooCommerce, delivery, shipping, shipment tracking, tracking
 Requires at least: 5.3
-Tested up to: 6.6.1
+Tested up to: 6.6.2
 Requires PHP: 7.2
-Stable tag: 3.6.9
+Stable tag: 3.7.0
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,14 @@ Yes, if you use external shipping services that work with the WooCommerce REST A
 3. Select default shipping provider from setting page and add tracking number in order page.
 
 == Changelog ==
+
+= 3.7.0 =
+* Enhancement - Move Usage Tracking panel from settings to license tab
+* Dev - added 'manage_woocommerce' permission through filter
+* Dev - Tested with WPML 4.7 and update the documentation
+* Dev - Tested plugin with WordPress 6.6.2
+* Dev - Tested with WooCommerce 9.3.3
+* Fix - Updated tracking order status email doesn't work
 
 = 3.6.9 =
 * Dev - Tested plugin with WordPress 6.6.1

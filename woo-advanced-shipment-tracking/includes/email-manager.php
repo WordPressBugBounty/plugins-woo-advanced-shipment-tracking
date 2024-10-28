@@ -37,7 +37,7 @@ class WC_Advanced_Shipment_Tracking_Email_Manager {
 			}
 		}
 		
-		$updated_tracking_status = get_option( 'wc_ast_status_updated_tracking', 0 );
+		$updated_tracking_status = get_ast_settings( 'ast_general_settings', 'wc_ast_status_updated_tracking', 0 );
 		if ( true == $updated_tracking_status ) {
 			if ( ! isset( $emails[ 'WC_Email_Customer_Updated_Tracking_Order' ] ) ) {
 				$emails[ 'WC_Email_Customer_Updated_Tracking_Order' ] = include_once( 'emails/class-shipment-updated-tracking-email.php' );

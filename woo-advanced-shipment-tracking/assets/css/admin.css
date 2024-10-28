@@ -2067,7 +2067,7 @@ ul.csv_error_details_ul li:before{
 	/* padding: 0; */
 	padding: 0 20px;
 }
-.tab_section .accordion{
+.tab_section .accordion, .tab_section .usage-tracking-accordion{
 	padding: 15px;
 	background: #fff;
 	border: 1px solid #e0e0e0;
@@ -2118,11 +2118,15 @@ ul.csv_error_details_ul li:before{
 .tab_section .accordion.heading.active label{
 	color: #3c4758;
 }
-.tab_section .accordion span.dashicons {
+.tab_section .accordion span.dashicons, .tab_section .usage-tracking-accordion span.dashicons {
 	float: right;
 	pointer-events: none;
 	padding: 5px 0;
 	display: inline-table;
+}
+.tab_section .usage-tracking-accordion label .ast-accordion-btn{
+	float: right;
+    pointer-events: all;
 }
 .tab_section .accordion.heading .dashicons.dashicons-arrow-right-alt2:before {
 	color: #005b9a;
@@ -2164,7 +2168,15 @@ ul.csv_error_details_ul li:before{
 	float: right;
 	margin: 10px 15px 0;
 }
-.tab_section .integration_accordion.heading label{
+.tab_section .usage-tracking-panel{
+	padding: 15px;	
+	display:block;
+	border: 1px solid #e0e0e0;
+	border-top: 0;
+    border-radius: 3px;
+	background: #fff;
+}
+.tab_section .integration_accordion.heading label, .tab_section .usage-tracking-accordion.heading label{
 	font-weight: 600;
 	font-size: 16px;
 	line-height: 38px;    
@@ -2654,7 +2666,7 @@ span.dashicons.dashicons-arrow-up-alt{
 	left: 0;    
 	right: auto;
 }
-.rtl .tab_section .accordion.heading label .ast-accordion-btn {
+.rtl .tab_section .accordion.heading label .ast-accordion-btn, .rtl .tab_section .usage-tracking-accordion.heading label .ast-accordion-btn {
 	float: left;
 }
 .rtl.shipment_tracking_admin_settings #wpcontent {
