@@ -730,8 +730,8 @@ class WC_Advanced_Shipment_Tracking_Admin {
 				'tooltip'		=> __( 'Choose the date format that you use when updating the shipment tracking API endpoint from external sources', 'woo-advanced-shipment-tracking' ),
 				'desc'		=> __( 'Choose for which Order status to display', 'woo-advanced-shipment-tracking' ),			
 				'options'   => array(
-									'd-m-Y' => 'DD/MM/YYYY',
-									'm-d-Y' => 'MM/DD/YYYY',
+									'd-m-Y' => 'DD-MM-YYYY',
+									'm-d-Y' => 'MM-DD-YYYY',
 							),
 				'default'   => 'd-m-Y',				
 				'show'		=> true,

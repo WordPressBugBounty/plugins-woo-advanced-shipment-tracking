@@ -191,25 +191,28 @@ class WC_Advanced_Shipment_Tracking_Actions {
 					$provider_name = $tracking_item[ 'tracking_provider' ];
 				}
 
+				$tracking_id = isset( $tracking_item['tracking_id'] ) ? $tracking_item['tracking_id'] : '';
+
 				if ( $tracking_item['ast_tracking_link'] ) {
 					printf(
 						'<li id="tracking-item-%s" class="tracking-item-%s"><div><b>%s</b></div><a href="%s" target="_blank" class=ft11>%s</a><a class="inline_tracking_delete" rel="%s" data-order="%s" data-nonce="' . esc_html( wp_create_nonce( 'delete-tracking-item' ) ) . '"><span class="dashicons dashicons-trash"></span></a></li>',
-						esc_attr( $tracking_item['tracking_id'] ),
-						esc_attr( $tracking_item['tracking_id'] ),
+						esc_attr( $tracking_id ),
+						esc_attr( $tracking_id ),
 						esc_html( $provider_name ),
 						esc_url( $tracking_item['ast_tracking_link'] ),
 						esc_html( $tracking_item['tracking_number'] ),
-						esc_attr( $tracking_item['tracking_id'] ),
+						esc_html( isset( $tracking_item['tracking_number'] ) ? $tracking_item['tracking_number'] : '' ),
+						esc_attr( $tracking_id ),
 						esc_attr( $order_id )
 					);
 				} else {
 					printf(
 						'<li id="tracking-item-%s" class="tracking-item-%s"><div><b>%s</b></div>%s<a class="inline_tracking_delete" rel="%s" data-order="%s" data-nonce="' . esc_html( wp_create_nonce( 'delete-tracking-item' ) ) . '"><span class="dashicons dashicons-trash"></span></a></li>',
-						esc_attr( $tracking_item['tracking_id'] ),
-						esc_attr( $tracking_item['tracking_id'] ),
+						esc_attr( $tracking_id ),
+						esc_attr( $tracking_id ),
 						esc_html( $provider_name ),
-						esc_html( $tracking_item['tracking_number'] ),
-						esc_attr( $tracking_item['tracking_id'] ),
+						esc_html( isset( $tracking_item['tracking_number'] ) ? $tracking_item['tracking_number'] : '' ),
+						esc_attr( $tracking_id ),
 						esc_attr( $order_id )
 					);
 				}
