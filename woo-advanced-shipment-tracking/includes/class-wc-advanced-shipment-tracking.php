@@ -662,6 +662,17 @@ class WC_Advanced_Shipment_Tracking_Actions {
 		
 		$tracking_provider = isset( $_POST['tracking_provider'] ) ? wc_clean( $_POST['tracking_provider'] ) : '';
 		$tracking_number = isset( $_POST['tracking_number'] ) ? wc_clean( $_POST['tracking_number'] ) : '';
+
+		// If the RouteApp plugin is active, disable its tracking meta-update hooks
+		if ( is_plugin_active( 'routeapp/routeapp.php' ) ) {
+			// Access the RouteApp public class instance
+			global $routeapp_public;
+			// Remove RouteApp handler from added_post_meta
+			remove_action( 'added_post_meta', array( $routeapp_public, 'routeapp_update_tracking_order_api' ), 20, 3 );
+			
+			// Remove RouteApp handler from updated_post_meta
+			remove_action( 'updated_post_meta', array( $routeapp_public, 'routeapp_update_tracking_order_api' ), 20, 3 );
+		}
 		
 		if ( strlen( $tracking_number ) > 0 && '' != $tracking_provider ) {	
 			
@@ -705,7 +716,18 @@ class WC_Advanced_Shipment_Tracking_Actions {
 		
 		$tracking_provider = isset( $_POST['tracking_provider'] ) ? wc_clean( $_POST['tracking_provider'] ) : '';
 		$tracking_number = isset( $_POST['tracking_number'] ) ? wc_clean( $_POST['tracking_number'] ) : '';
-		//$tracking_number = str_replace( ' ', '', $tracking_number );				
+		//$tracking_number = str_replace( ' ', '', $tracking_number );	
+		
+		// If the RouteApp plugin is active, disable its tracking meta-update hooks
+		if ( is_plugin_active( 'routeapp/routeapp.php' ) ) {
+			// Access the RouteApp public class instance
+			global $routeapp_public;
+			// Remove RouteApp handler from added_post_meta
+			remove_action( 'added_post_meta', array( $routeapp_public, 'routeapp_update_tracking_order_api' ), 20, 3 );
+			
+			// Remove RouteApp handler from updated_post_meta
+			remove_action( 'updated_post_meta', array( $routeapp_public, 'routeapp_update_tracking_order_api' ), 20, 3 );
+		}
 		
 		if ( strlen( $tracking_number ) > 0 && '' != $tracking_provider ) {	
 	
@@ -770,6 +792,17 @@ class WC_Advanced_Shipment_Tracking_Actions {
 		
 		$tracking_provider = isset( $_POST['tracking_provider'] ) ? wc_clean( $_POST['tracking_provider'] ) : '';
 		$tracking_number = isset( $_POST['tracking_number'] ) ? wc_clean( $_POST['tracking_number'] ) : '';
+
+		// If the RouteApp plugin is active, disable its tracking meta-update hooks
+		if ( is_plugin_active( 'routeapp/routeapp.php' ) ) {
+			// Access the RouteApp public class instance
+			global $routeapp_public;
+			// Remove RouteApp handler from added_post_meta
+			remove_action( 'added_post_meta', array( $routeapp_public, 'routeapp_update_tracking_order_api' ), 20, 3 );
+			
+			// Remove RouteApp handler from updated_post_meta
+			remove_action( 'updated_post_meta', array( $routeapp_public, 'routeapp_update_tracking_order_api' ), 20, 3 );
+		}
 		
 		if ( strlen( $tracking_number ) > 0 && '' != $tracking_provider ) {	
 			
@@ -855,7 +888,7 @@ class WC_Advanced_Shipment_Tracking_Actions {
 	public function show_tracking_info_order( $order_id ) {	
 		
 		wp_enqueue_style( 'front_style' );
-		wp_enqueue_script( 'jquery-blockui' );
+		wp_enqueue_script( 'wc-jquery-blockui' );
 		wp_enqueue_script( 'front-js' );
 		
 		$local_template	= get_stylesheet_directory() . '/woocommerce/myaccount/tracking-info.php';
