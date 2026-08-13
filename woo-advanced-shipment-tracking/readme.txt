@@ -2,23 +2,23 @@
 Contributors: zorem, gaurav1092, eranzorem, satishzorem
 Tags: shipment tracking, order tracking, tracking number, fulfillment, shipping notifications
 Requires at least: 5.3
-Tested up to: 7.0
-Stable tag: 4.0.1
+Tested up to: 7.0.4
+Stable tag: 4.0.2
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-The #1 WooCommerce shipment tracking plugin. Add tracking, auto-update order status, send branded emails. 1010+ carriers. Trusted by 60,000+ stores.
+The #1 WooCommerce shipment tracking plugin. Add tracking, auto-update order status, send branded emails. 1010+ carriers. Trusted by 70,000+ stores.
 
 == Description ==
 
-**Trusted by 60,000+ WooCommerce stores worldwide.** Advanced Shipment Tracking (AST) helps WooCommerce store owners add tracking numbers to orders and automatically share them with customers — reducing "Where is my order?" support tickets and keeping shoppers informed from checkout to delivery.
+**Trusted by 70,000+ WooCommerce stores worldwide.** Advanced Shipment Tracking (AST) helps WooCommerce store owners add tracking numbers to orders and automatically share them with customers — reducing "Where is my order?" support tickets and keeping shoppers informed from checkout to delivery.
 
 When you ship an order, your customer instantly gets a tracking link in their order email and on their **My Account > Orders** page. No external accounts, no complex setup, no monthly fees.
 
 **HPOS Compatible** · **WooCommerce Block Checkout Compatible** · **1010+ Carriers** · **Free & Open Source**
 
-= Why 60,000+ Stores Choose AST =
+= Why 70,000+ Stores Choose AST =
 
 Whether you ship 5 orders a day or 5,000, AST fits into your workflow:
 
@@ -111,7 +111,7 @@ Alternatively, upload the `woo-advanced-shipment-tracking` folder to `/wp-conten
 
 = How is AST different from the official WooCommerce Shipment Tracking extension? =
 
-AST is built for store owners who want more than basic tracking links. Compared to the official WooCommerce Shipment Tracking extension, AST adds: 1010+ pre-configured shipping carriers (vs ~50), a customizable tracking widget with live preview, a complete "Shipped / Partially Shipped" fulfillment workflow, bulk CSV import, a Shipment Tracking REST API, and automatic data migration from the official plugin. AST is free, open source, and trusted by 60,000+ active WooCommerce stores.
+AST is built for store owners who want more than basic tracking links. Compared to the official WooCommerce Shipment Tracking extension, AST adds: 1010+ pre-configured shipping carriers (vs ~50), a customizable tracking widget with live preview, a complete "Shipped / Partially Shipped" fulfillment workflow, bulk CSV import, a Shipment Tracking REST API, and automatic data migration from the official plugin. AST is free, open source, and trusted by 70,000+ active WooCommerce stores.
 
 = I'm migrating from WooCommerce Shipment Tracking (by WooCommerce). Will my data carry over? =
 
@@ -195,6 +195,10 @@ Yes. If you use external shipping services or fulfillment tools that work with t
 10. AST settings page for customizing order statuses, email display, and tracking behavior.
 
 == Changelog ==
+
+= 4.0.2 =
+* Dev – Tested with WooCommerce 11.0.1 and WordPress 7.0.4
+* Fix – Updated version header in customer-completed-order.php email template for WooCommerce 11.0 compatibility
 
 = 4.0.1 =
 * Dev – Tested with WooCommerce 10.9.3
