@@ -33,7 +33,7 @@ class WC_Advanced_Shipment_Tracking_Admin_Notice {
 		add_action( 'admin_notices', array( $this, 'ast_review_admin_notice_4_0_2' ) );
 
 		if ( ! $this->is_ast_settings_screen() ) {
-			add_action( 'admin_notices', array( $this, 'ast_pro_notice_4_0_3' ) );
+			add_action( 'admin_notices', array( $this, 'ast_pro_notice_4_0_4' ) );
 		}
 
 		// Shortcode used by the settings screen to inject a status message inline.
@@ -54,7 +54,7 @@ class WC_Advanced_Shipment_Tracking_Admin_Notice {
 	public function handle_dismissals() {
 		$map = array(
 			'ast-review-update-notice-4-0-2'    => array( 'ast_review_dismiss_notice_4_0_2', 'ast_review_update_ignore_4_0_2' ),
-			'ast-pro-notice-4-0-3'              => array( 'ast_pro_dismiss_notice_4_0_3',    'ast_notice_ignore_4_0_3' ),
+			'ast-pro-notice-4-0-4'              => array( 'ast_pro_dismiss_notice_4_0_4',    'ast_notice_ignore_4_0_4' ),
 			'ast-3-9-2-db-update-notice-ignore' => array( 'ast_db_update_dismiss_notice',    'ast_3_9_2_db_update_notice_ignore' ),
 		);
 		foreach ( $map as $query_arg => list( $action, $option ) ) {
@@ -96,7 +96,7 @@ class WC_Advanced_Shipment_Tracking_Admin_Notice {
 	}
 
 	private function pro_notice_visible() {
-		return ! get_option( 'ast_notice_ignore_4_0_3' ) && ! $this->is_ast_settings_screen();
+		return ! get_option( 'ast_notice_ignore_4_0_4' ) && ! $this->is_ast_settings_screen();
 	}
 
 	/**
@@ -298,7 +298,7 @@ class WC_Advanced_Shipment_Tracking_Admin_Notice {
 	 * ----------------------------------------------------------------- */
 
 	/**
-	 * Rebuilt in 4.0.3 on the shared .zui-pnotice component, so the upsell card
+	 * Rebuilt in 4.0.4 on the shared .zui-pnotice component, so the upsell card
 	 * matches the review notice and the redesigned settings screens instead of
 	 * the old core `.notice` banner with its own inline button CSS.
 	 *
@@ -309,16 +309,16 @@ class WC_Advanced_Shipment_Tracking_Admin_Notice {
 	 * varies and would fight the card's spacing. The ✅ already reads as the
 	 * bullet, so nothing is lost.
 	 *
-	 * The dismiss option is version-tagged (4_0_3), following the same pattern
+	 * The dismiss option is version-tagged (4_0_4), following the same pattern
 	 * as the other notices, so the redesigned card surfaces once for users who
 	 * had dismissed the 4.0 version.
 	 */
-	public function ast_pro_notice_4_0_3() {
+	public function ast_pro_notice_4_0_4() {
 		if ( ! $this->pro_notice_visible() ) {
 			return;
 		}
 
-		$dismiss_url = $this->dismiss_url( 'ast-pro-notice-4-0-3', 'ast_pro_dismiss_notice_4_0_3' );
+		$dismiss_url = $this->dismiss_url( 'ast-pro-notice-4-0-4', 'ast_pro_dismiss_notice_4_0_4' );
 		$this->open_pnotice( 'ast-pro-notice', $dismiss_url );
 		?>
 				<strong class="zui-pnotice__title"><?php esc_html_e( '🚀 Upgrade to AST PRO – Automate Your Shipping Workflow', 'woo-advanced-shipment-tracking' ); ?></strong>
